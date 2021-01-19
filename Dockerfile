@@ -2,6 +2,8 @@ FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
+RUN echo y | apt install software-properties-common
+RUN echo y | add-apt-repository ppa:deadsnakes/ppa
 RUN echo y | apt-get install locales
 RUN echo y | apt install build-essential
 RUN set -ex; \
@@ -17,7 +19,7 @@ RUN set -ex; \
 	unzip \
 	unrar \
 	tar \
-        python3-dev \
+        python3.8 \
         python3-pip \
 	python3-lxml \
 	pv \
