@@ -15,6 +15,11 @@ RUN set -ex; \
 	pv \
 	jq \
 	ffmpeg \
+	
+	
+	&& apt-get autoclean \
+        && apt-get autoremove \
+        && rm -rf /var/lib/apt/lists/*
 RUN pip3 install setuptools
 RUN pip3 install wheel
 RUN pip3 install yarl multidict aiohttp pyrogram aria2p hachoir Pillow tgcrypto youtube-dl hurry.filesize
