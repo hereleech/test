@@ -2,6 +2,7 @@ FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
+RUN echo y | apt-get install locales
 RUN echo y | apt install build-essential
 RUN set -ex; \
     apt-get update \
