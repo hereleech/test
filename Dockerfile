@@ -10,7 +10,7 @@ RUN set -ex; \
 	unzip \
 	unrar \
 	tar \
-        python3 \
+        python3-dev \
         python3-pip \
 	python3-lxml \
 	pv \
