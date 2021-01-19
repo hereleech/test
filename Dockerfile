@@ -27,4 +27,5 @@ RUN pip3 install wheel
 RUN pip3 install yarl multidict aiohttp pyrogram aria2p hachoir Pillow tgcrypto youtube-dl hurry.filesize
 RUN dpkg-reconfigure locales
 COPY . /app
+RUN chmod +x /app/run.sh
 CMD ["/app/run.sh"]
