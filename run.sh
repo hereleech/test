@@ -1,4 +1,5 @@
 #!/bin/bash
+pip3 install pymongo heroku3
 ## Set the variable below to your Aria password
 ARIA_RPC_SECRET="Myheroku"
 ## This is the maximum number of download jobs that will be active at a time. Note that this does not affect the number of concurrent *uploads*
