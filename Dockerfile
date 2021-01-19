@@ -10,6 +10,7 @@ RUN set -ex; \
     apt-get update \
     && apt-get install -y --no-install-recommends \
         busybox \
+	python3.8-dev \
 	megatools \
 	curl \
 	gnupg2 \
@@ -19,7 +20,6 @@ RUN set -ex; \
 	unzip \
 	unrar \
 	tar \
-        python3.8 \
         python3-pip \
 	python3-lxml \
 	pv \
