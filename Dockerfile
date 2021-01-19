@@ -11,6 +11,7 @@ RUN set -ex; \
     && apt-get install -y --no-install-recommends \
         busybox \
 	python3.8-dev \
+	python3-dev \
 	megatools \
 	curl \
 	gnupg2 \
@@ -30,7 +31,6 @@ RUN set -ex; \
 	&& apt-get autoclean \
         && apt-get autoremove \
         && rm -rf /var/lib/apt/lists/*	
-RUN echo y | python3 -m pip install pip
 RUN pip3 install setuptools
 RUN pip3 install wheel
 RUN pip3 install aiofiles aiohttp bs4 covid cowpy dnspython emoji gitpython google-api-python-client google-auth-httplib2 google-auth-oauthlib googletrans==3.1.0a0 hachoir heroku3 html-telegraph-poster instaloader motor natsort oauth2client Pillow==8.0 psutil pybase64 pyrogram==1.1.12 pySmartDL python-dotenv pytz rarfile removebg requests search-engine-parser selenium==3.141.0 setuptools>=40.3.0 spamwatch speedtest-cli stagger telegraph tgcrypto urbandict==0.5 wget wikipedia youtube_dl>=2021.1.8
