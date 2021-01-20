@@ -1,4 +1,4 @@
 #!/bin/bash
-git clone https://artemiszuk:mygithub004@github.com/artemiszuk/UsergeS
-cd UsergeS
-bash run
+git clone https://github.com/RAHULE112KAPOOR/Leecherz
+cd Leecherz
+python3 -m tobrot
