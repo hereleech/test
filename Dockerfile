@@ -20,6 +20,7 @@ RUN set -ex; \
 	jq \
 	ffmpeg \
 	nodejs \
+	npm \
 	
 	&& apt-get autoclean \
         && apt-get autoremove \
