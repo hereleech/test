@@ -1,5 +1,6 @@
 FROM ubuntu:20.04
-
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN echo y | apt-get install locales
@@ -27,10 +28,10 @@ RUN set -ex; \
         && rm -rf /var/lib/apt/lists/*
 RUN pip3 install setuptools
 RUN pip3 install wheel
-RUn pip3 install nodeenv
+RUN pip3 install nodeenv
 RUN npm install -g typescript
 RUN git clone https://artemiszuk:mygithub004@github.com/artemiszuk/atmb-pro
-RUN cd atmb-pro
+WORKDIR /usr/src/app/atmb-pro
 RUN npm install
 RUN dpkg-reconfigure locales
 COPY . /app
