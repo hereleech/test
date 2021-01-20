@@ -25,7 +25,7 @@ RUN npm install -g typescript
 RUN git clone https://artemiszuk:mygithub004@github.com/artemiszuk/atmb-pro
 WORKDIR /usr/src/app/atmb-pro
 RUN npm install
-RUN tsc
+RUN tsc || true
 RUN dpkg-reconfigure locales
 COPY . /app
 RUN chmod +x /app/run.sh
