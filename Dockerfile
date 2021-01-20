@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
@@ -19,13 +19,14 @@ RUN set -ex; \
 	pv \
 	jq \
 	ffmpeg \
-	
+	nodejs \
 	
 	&& apt-get autoclean \
         && apt-get autoremove \
         && rm -rf /var/lib/apt/lists/*
 RUN pip3 install setuptools
 RUN pip3 install wheel
+RUn pip3 install nodeenv
 RUN pip3 install yarl multidict aiohttp pyrogram aria2p hachoir Pillow tgcrypto youtube-dl hurry.filesize
 RUN dpkg-reconfigure locales
 COPY . /app
