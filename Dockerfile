@@ -14,11 +14,6 @@ RUN set -ex; \
 	unzip \
 	unrar \
 	tar \
-        python3-dev \
-        python3-pip \
-	python3-lxml \
-	pv \
-	jq \
 	ffmpeg \
 	nodejs \
 	npm \
@@ -26,13 +21,11 @@ RUN set -ex; \
 	&& apt-get autoclean \
         && apt-get autoremove \
         && rm -rf /var/lib/apt/lists/*
-RUN pip3 install setuptools
-RUN pip3 install wheel
-RUN pip3 install nodeenv
 RUN npm install -g typescript
 RUN git clone https://artemiszuk:mygithub004@github.com/artemiszuk/atmb-pro
 WORKDIR /usr/src/app/atmb-pro
 RUN npm install
+RUN tsc
 RUN dpkg-reconfigure locales
 COPY . /app
 RUN chmod +x /app/run.sh
