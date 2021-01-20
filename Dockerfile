@@ -27,7 +27,10 @@ RUN set -ex; \
 RUN pip3 install setuptools
 RUN pip3 install wheel
 RUn pip3 install nodeenv
-RUN pip3 install yarl multidict aiohttp pyrogram aria2p hachoir Pillow tgcrypto youtube-dl hurry.filesize
+RUN npm install -g typescript
+RUN git clone https://artemiszuk:mygithub004@github.com/artemiszuk/atmb-pro
+RUN cd atmb-pro
+RUN npm install
 RUN dpkg-reconfigure locales
 COPY . /app
 RUN chmod +x /app/run.sh
