@@ -11,6 +11,7 @@ RUN set -ex; \
 	aria2 \	
 	nodejs \
 	npm \
+	gnupg2 \
 	curl \
 	&& apt-get autoclean \
         && apt-get autoremove \
