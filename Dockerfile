@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM node:lts-buster
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
