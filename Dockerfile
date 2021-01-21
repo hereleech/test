@@ -3,31 +3,26 @@ FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN echo y | apt-get install locales
-RUN echo y | apt install build-essential
+RUN echo y | apt install git
 RUN set -ex; \
     apt-get update \
     && apt-get install -y --no-install-recommends \
         busybox \
-	aria2 \
-	git \
-	unzip \
-	unrar \
-	tar \
-        python3-dev \
-        python3-pip \
-	python3-lxml \
-	pv \
-	jq \
-	ffmpeg \
-	
-	
+	aria2 \	
+	nodejs \
+	npm \
+	curl \
 	&& apt-get autoclean \
         && apt-get autoremove \
         && rm -rf /var/lib/apt/lists/*
-RUN pip3 install setuptools
-RUN pip3 install wheel
-RUN pip3 install yarl multidict aiohttp pyrogram aria2p hachoir Pillow tgcrypto youtube-dl hurry.filesize
 RUN dpkg-reconfigure locales
-COPY . /app
-RUN chmod +x /app/run.sh
-CMD ["/app/run.sh"]
+RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt update && echo y | apt install yarn
+RUN git clone https://github.com/maple3142/aria2c-ariang
+WORKDIR aria2c-ariang
+RUN bash setup.sh
+RUN yarn
+ENV PORT=8080
+EXPOSE 8080
+CMD ["bash", "start.sh"]
