@@ -17,7 +17,7 @@ RUN set -ex; \
         && apt-get autoremove \
         && rm -rf /var/lib/apt/lists/*
 RUN dpkg-reconfigure locales
-RUN git clone https://github.com/maple3142/aria2c-ariang
+RUN git clone https://github.com/artemiszuk/aria2c-ariang
 WORKDIR aria2c-ariang
 RUN bash setup.sh
 RUN yarn
