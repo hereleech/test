@@ -7,7 +7,7 @@ RUN apk add --no-cache g++ gcc libxml2-dev libxslt-dev python3-dev unrar unzip t
 RUN pip3 install --no-cache setuptools
 RUN pip3 install --no-cache wheel
 RUN ls /usr/lib/python3.8/site-packages/
-RUN pip3 install --no-cache-dir aiohttp aria2p hachoir Pillow https://github.com/Mahesh0253/pyrogram/archive/asyncio.zip tgcrypto youtube-dl hurry.filesize
+RUN pip3 install --no-cache-dir virtualenv
 COPY . /app
 RUN chmod +x /app/run.sh
 CMD ["/app/run.sh"]
