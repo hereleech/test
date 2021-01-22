@@ -1,4 +1,4 @@
-FROM alpine:3.13.0
+FROM bash:4.4
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apk update
