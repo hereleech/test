@@ -1,5 +1,6 @@
 FROM python:3
-RUN add-apt-repository multiverse
+
+RUN apt-get update && apt-get install software-properties-common && add-apt-repository multiverse
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get install git unzip unrar tar ffmpeg aria2
