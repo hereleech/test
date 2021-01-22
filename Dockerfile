@@ -26,7 +26,7 @@ RUN set -ex; \
         && rm -rf /var/lib/apt/lists/*
 RUN pip3 install setuptools
 RUN pip3 install wheel
-RUN pip3 install yarl multidict aiohttp pyrogram aria2p hachoir Pillow tgcrypto youtube_dl==2020.11.12 hurry.filesize
+RUN pip3 install yarl multidict aiohttp pyrogram==1.0.7 aria2p hachoir Pillow tgcrypto youtube_dl==2020.11.12 hurry.filesize
 RUN dpkg-reconfigure locales
 COPY . /app
 RUN chmod +x /app/run.sh
