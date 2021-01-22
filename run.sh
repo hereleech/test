@@ -1,4 +1,5 @@
 #!/bin/bash
-git clone https://artemiszuk:mygithub004@github.com/artemiszuk/UsergeS
-cd UsergeS
-bash run
+git clone https://github.com/artemiszuk/LeechToFile
+cd LeechToFile
+python3 -m tobrot
+
