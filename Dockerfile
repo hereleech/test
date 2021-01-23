@@ -1,4 +1,5 @@
-FROM ubuntu:20.04
+FROM lzzy12/mega-sdk-python:latest
+
 WORKDIR /usr/src/app
 RUN chmod 777 /usr/src/app
 
@@ -19,7 +20,6 @@ RUN set -ex; \
         p7zip-rar \ 
         curl \
 	tar \
-        python3-dev \
         python3-pip \
 	python3-lxml \
 	ffmpeg \
