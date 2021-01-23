@@ -1,7 +1,7 @@
 FROM lzzy12/mega-sdk-python:latest
 
-WORKDIR /usr/src/app
-RUN chmod 777 /usr/src/app
+WORKDIR /app
+RUN chmod 777 /app
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
@@ -14,14 +14,14 @@ RUN set -ex; \
     apt-get update \
     && apt-get install -y --no-install-recommends \
 	aria2 \
+	curl \
+        pv \
+	jq \
         wget \
 	git \
-	unzip \
-	unrar \
         p7zip-full \
         p7zip-rar \ 
         curl \
-	tar \
         python3-pip \
 	python3-lxml \
 	ffmpeg \
@@ -31,8 +31,6 @@ RUN set -ex; \
         && apt-get autoremove \
         && rm -rf /var/lib/apt/lists/*
 COPY requirements.txt .
-COPY extract /usr/local/bin
-RUN chmod +x /usr/local/bin/extract
 RUN pip3 install setuptools
 RUN pip3 install wheel
 RUN pip3 install --no-cache-dir -r requirements.txt
