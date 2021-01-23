@@ -27,8 +27,6 @@ RUN set -ex; \
         && apt-get autoremove \
         && rm -rf /var/lib/apt/lists/*
 COPY requirements.txt .
-COPY extract /usr/local/bin
-RUN chmod +x /usr/local/bin/extract
 RUN pip3 install setuptools
 RUN pip3 install wheel
 RUN pip3 install --no-cache-dir -r requirements.txt
