@@ -11,6 +11,9 @@ RUN set -ex; \
 	git \
 	unzip \
 	unrar \
+        p7zip-full \
+        p7zip-rar \ 
+        curl \
 	tar \
         python3-dev \
         python3-pip \
