@@ -1,7 +1,7 @@
 FROM lzzy12/mega-sdk-python:latest
 
-WORKDIR /app
-RUN chmod 777 /app
+WORKDIR /usr/src/app
+RUN chmod 777 /usr/src/app
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
@@ -14,6 +14,7 @@ RUN set -ex; \
     apt-get update \
     && apt-get install -y --no-install-recommends \
 	aria2 \
+	extract \
 	curl \
         pv \
 	jq \
@@ -30,6 +31,8 @@ RUN set -ex; \
 	&& apt-get autoclean \
         && apt-get autoremove \
         && rm -rf /var/lib/apt/lists/*
+COPY extract /usr/local/bin
+RUN chmod +x /usr/local/bin/extract
 COPY requirements.txt .
 RUN pip3 install setuptools
 RUN pip3 install wheel
