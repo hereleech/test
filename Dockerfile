@@ -3,40 +3,24 @@ FROM lzzy12/mega-sdk-python:latest
 WORKDIR /usr/src/app
 RUN chmod 777 /usr/src/app
 
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update
-RUN echo y | apt-get install locales
-RUN apt-get install -y software-properties-common && apt-add-repository non-free
-RUN apt-get update
-RUN apt-get install -y libmagic-dev
-RUN echo y | apt install build-essential
-RUN set -ex; \
-    apt-get update \
-    && apt-get install -y --no-install-recommends \
-	aria2 \
-	extract \
-	curl \
-        pv \
-	jq \
-        wget \
-	git \
-        p7zip-full \
-        p7zip-rar \ 
-        curl \
-        python3-pip \
-	python3-lxml \
-	ffmpeg \
-	
-	
-	&& apt-get autoclean \
-        && apt-get autoremove \
-        && rm -rf /var/lib/apt/lists/*
+RUN apt-get -qq update && \
+    apt-get install -y software-properties-common && \
+    rm -rf /var/lib/apt/lists/* && \
+    apt-add-repository non-free && \
+    apt-get -qq update && \
+    apt-get -qq install -y p7zip-full p7zip-rar aria2 curl pv jq ffmpeg locales python3-lxml && \
+    apt-get purge -y software-properties-common
+
+COPY requirements.txt .
 COPY extract /usr/local/bin
 RUN chmod +x /usr/local/bin/extract
-COPY requirements.txt .
-RUN pip3 install setuptools
-RUN pip3 install wheel
 RUN pip3 install --no-cache-dir -r requirements.txt
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 COPY . .
-RUN chmod +x run.sh
-CMD ["./run.sh"]
+COPY netrc /root/.netrc
+RUN chmod +x aria.sh
+
+CMD ["bash","start.sh"]
