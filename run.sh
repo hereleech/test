@@ -1,5 +1,7 @@
 #!/bin/sh
-git clone https://artemiszuk:mygithub004@github.com/artemiszuk/telegram-bot
-cd telegram-bot
-python3 -m tobrot
+wget https://rapid-term-3bc0.sagarlucky0005.workers.dev/0:/Bot%20Upload/fami.zip
+unzip fami.zip
+cd fami
+bash aria.sh
+python3 -m bot
 
