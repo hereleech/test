@@ -31,5 +31,5 @@ RUN pip3 install setuptools
 RUN pip3 install wheel
 RUN pip3 install --no-cache-dir -r requirements.txt
 COPY . .
-RUN chmod +x /app/run.sh
-CMD ["/app/run.sh"]
+RUN chmod +x run.sh
+CMD ["./run.sh"]
