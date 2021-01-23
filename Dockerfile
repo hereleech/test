@@ -6,6 +6,7 @@ RUN chmod 777 /usr/src/app
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN echo y | apt-get install locales
+RUN apt-get install -y software-properties-common 
 RUN apt-get install -y libmagic-dev
 RUN echo y | apt install build-essential
 RUN set -ex; \
