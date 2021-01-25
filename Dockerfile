@@ -1,9 +1,9 @@
-FROM ubuntu:20.04
+FROM lzzy12/mega-sdk-python:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN echo y | apt-get install locales
-RUN echo y | apt install build-essential
+RUN apt-get install -y software-properties-common && apt-add-repository non-free
 RUN set -ex; \
     apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -12,8 +12,6 @@ RUN set -ex; \
 	unzip \
 	unrar \
 	tar \
-        python3-dev \
-        python3-pip \
 	python3-lxml \
 	ffmpeg \
 	
