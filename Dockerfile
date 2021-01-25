@@ -32,7 +32,8 @@ RUN set -ex; \
         && apt-get autoremove \
         && rm -rf /var/lib/apt/lists/*
 COPY extract /usr/local/bin
-RUN chmod +x /usr/local/bin/extract
+COPY pextract /usr/local/bin
+RUN chmod +x /usr/local/bin/extract && chmod +x /usr/local/bin/pextract
 COPY requirements.txt .
 RUN pip3 install setuptools
 RUN pip3 install wheel
