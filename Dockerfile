@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN echo y | apt-get install locales
-RUN apt-get install -y software-properties-common && apt-add-repository non-free
+RUN apt-get install -y software-properties-common
 RUN apt-get update
 RUN apt-get install -y curl git wget \
     python3 python3-pip \
