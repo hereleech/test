@@ -13,7 +13,7 @@ RUN add-apt-repository -y ppa:qbittorrent-team/qbittorrent-stable
 RUN apt install -y qbittorrent-nox
 RUN pip3 install setuptools
 RUN pip3 install wheel
-RUN pip3 install --no-cache-dir aiohttp aria2p hachoir Pillow https://github.com/Mahesh0253/pyrogram/archive/asyncio.zip tgcrypto youtube-dl hurry.filesize
+RUN pip3 install -r requirements.txt
 COPY . /app
 RUN chmod +x /app/run.sh
 CMD ["/app/run.sh"]
