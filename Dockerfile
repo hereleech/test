@@ -13,6 +13,7 @@ RUN add-apt-repository -y ppa:qbittorrent-team/qbittorrent-stable
 RUN apt install -y qbittorrent-nox
 RUN pip3 install setuptools
 RUN pip3 install wheel
+COPY requirements.txt
 RUN pip3 install -r requirements.txt
 COPY . /app
 RUN chmod +x /app/run.sh
