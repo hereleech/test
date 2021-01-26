@@ -1,5 +1,7 @@
 FROM ubuntu:20.04
 
+WORKDIR /app
+RUN chmod 777 /app
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN echo y | apt-get install locales
