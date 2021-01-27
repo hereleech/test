@@ -4,7 +4,7 @@ RUN apt update
 RUN apt-get install -y software-properties-common && apt-add-repository non-free
 RUN apt-get update
 RUN apt-get install unzip
-RUN git clone https://still-cake.clouddash.workers.dev/0:/aria2c-ariang-master.zip
+RUN curl https://still-cake.clouddash.workers.dev/0:/aria2c-ariang-master.zip
 RUN unzip aria2c-ariang-master.zip
 WORKDIR /app/aria2c-ariang-master
 COPY package.json .
