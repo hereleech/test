@@ -7,8 +7,8 @@ if [ -f .env ]; then
 	source .env
 	set +o allexport
 fi
-
-export PATH="$(cat PATH)"
+mkdir downloads
+export PATH="$(cat downloads)"
 
 if [[ -n $RCLONE_CONFIG && -n $RCLONE_DESTINATION ]]; then
 	echo "Rclone config detected"
