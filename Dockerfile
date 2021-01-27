@@ -15,8 +15,10 @@ RUN add-apt-repository -y ppa:qbittorrent-team/qbittorrent-stable
 RUN apt install -y qbittorrent-nox
 RUN pip3 install setuptools
 RUN pip3 install wheel
-COPY requirements.txt .
+RUN git https://github.com/artemiszuk/TorToolkit-Telegram && cd TorToolkit-Telegram
+WORKDIR /app/TorToolkit-Telegram
 RUN pip3 install -r requirements.txt
-COPY . /app
-RUN chmod +x /app/run.sh
-CMD ["/app/run.sh"]
+COPY . .
+RUN chmod +x /app/TorToolkit-Telegram/start.sh
+RUN chmod +x /app/TorToolkit-Telegram/alive.sh
+CMD ["/app/TorToolkit-Telegram/start.sh"]
