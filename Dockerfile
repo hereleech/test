@@ -1,4 +1,6 @@
 FROM node:12.20.1-buster
+RUN apt-get update
+RUN apt install aria2
 WORKDIR /root
 COPY package.json .
 COPY setup.sh .
