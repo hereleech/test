@@ -8,4 +8,4 @@ RUN yarn
 COPY . .
 ENV PORT=8080
 EXPOSE 8080
-CMD ["bash", "start.sh"]
+CMD ["bash", "run.sh"]
