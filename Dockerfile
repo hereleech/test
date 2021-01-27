@@ -8,7 +8,7 @@ RUN echo y | apt-get install locales
 RUN apt-get install -y software-properties-common
 RUN apt-get update
 RUN apt-get install -y curl git wget \
-    python3 python3-pip \
+    python3 python3-venv python3-pip \
     aria2 \
     ffmpeg mediainfo unzip p7zip-full p7zip-rar
 RUN add-apt-repository -y ppa:qbittorrent-team/qbittorrent-stable
