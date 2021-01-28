@@ -1,7 +1,9 @@
 FROM ubuntu:20.04
 
-WORKDIR /app
-RUN chmod 777 /app
+WORKDIR /torapp
+RUN chmod -R 777 /torapp
+
+ENV TZ Asia/Kolkata
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN echo y | apt-get install locales
@@ -15,6 +17,12 @@ RUN add-apt-repository -y ppa:qbittorrent-team/qbittorrent-stable
 RUN apt install -y qbittorrent-nox
 RUN pip3 install setuptools
 RUN pip3 install wheel
+COPY requirements.txt .
+RUN pip3 install --no-cache-dir -r requirements.txt
+
 COPY . .
-RUN chmod +x /app/run.sh
+RUN chmod 777 /app/run.sh
+RUN useradd -ms /bin/bash  myuser
+USER myuser
+
 CMD ["/app/run.sh"]
