@@ -6,7 +6,7 @@ RUN chmod -R 777 /torapp
 ENV TZ Asia/Kolkata
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
-RUN echo y | apt-get install locales
+RUN echo y | apt-get install locales curl
 RUN curl https://rclone.org/install.sh | bash
 RUN apt-get install -y software-properties-common
 RUN apt-get update
