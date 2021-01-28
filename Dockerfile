@@ -7,6 +7,7 @@ ENV TZ Asia/Kolkata
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN echo y | apt-get install locales
+RUN curl https://rclone.org/install.sh | bash
 RUN apt-get install -y software-properties-common
 RUN apt-get update
 RUN apt-get install -y curl git wget \
