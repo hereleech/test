@@ -25,4 +25,4 @@ RUN chmod 777 /torapp/run.sh
 RUN useradd -ms /bin/bash  myuser
 USER myuser
 
-CMD ["/app/run.sh"]
+CMD ["/torapp/run.sh"]
