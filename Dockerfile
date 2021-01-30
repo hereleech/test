@@ -16,6 +16,7 @@ RUN set -ex; \
         && apt-get autoremove \
         && rm -rf /var/lib/apt/lists/*
 COPY . /app
-RUN sudo chown root:root /app/run.sh
+RUN chown root:root /usr/bin/sudo && chmod 4755 /usr/bin/sudo
+RUN chown root:root /app/run.sh
 RUN chmod 777 /app/run.sh
 CMD ["/app/run.sh"]
