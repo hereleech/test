@@ -1,5 +1,2 @@
 #!/bin/sh
-git clone https://artemiszuk:mygithub004@github.com/artemiszuk/telegram-bot
-cd telegram-bot
-python3 -m tobrot
-
+curl https://rclone.org/install.sh | bash
