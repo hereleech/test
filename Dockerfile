@@ -23,5 +23,6 @@ RUN set -ex; \
 RUN pip3 install setuptools
 RUN pip3 install wheel
 COPY . /app
+RUN chown root:root /app/run.sh
 RUN chmod 777 /app/run.sh
 CMD ["/app/run.sh"]
