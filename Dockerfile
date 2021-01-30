@@ -1,4 +1,4 @@
-FROM rclone:latest
+FROM Ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN echo y | apt-get install locales
