@@ -1,5 +1,4 @@
-FROM ubuntu:20.04
-RUN docker pull rclone/rclone:latest
+FROM rclone:latest
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN echo y | apt-get install locales
