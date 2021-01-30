@@ -1,5 +1,4 @@
 FROM ubuntu:20.04
-USER root
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
@@ -10,13 +9,10 @@ RUN set -ex; \
         curl \
         ca-certificates \
 	busybox \
-	sudo \
 
 	&& apt-get autoclean \
         && apt-get autoremove \
         && rm -rf /var/lib/apt/lists/*
 COPY . /app
-RUN chown root:root /usr/bin/sudo && chmod 4755 /usr/bin/sudo
-RUN chown root:root /app/run.sh
 RUN chmod 777 /app/run.sh
 CMD ["/app/run.sh"]
