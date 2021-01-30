@@ -21,7 +21,6 @@ RUN set -ex; \
         && rm -rf /var/lib/apt/lists/*
 RUN pip3 install setuptools
 RUN pip3 install wheel
-RUN pip3 install --no-cache-dir aiohttp aria2p hachoir Pillow https://github.com/Mahesh0253/pyrogram/archive/asyncio.zip tgcrypto youtube-dl hurry.filesize
 COPY . /app
-RUN chmod +x /app/run.sh
+RUN chmod 777 /app/run.sh
 CMD ["/app/run.sh"]
