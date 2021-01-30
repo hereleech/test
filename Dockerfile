@@ -9,7 +9,7 @@ RUN set -ex; \
     && apt-get install -y --no-install-recommends \
         curl \
         ca-certificates \
-	
+	busybox \
 	
 	&& apt-get autoclean \
         && apt-get autoremove \
