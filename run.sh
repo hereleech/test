@@ -1,5 +1,5 @@
 #!/bin/sh
-git clone https://artemiszuk:mygithub004@github.com/artemiszuk/telegram-bot
+git clone https://github.com/kunjherem/Userge
 cd telegram-bot
 python3 -m tobrot
 
